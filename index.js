@@ -1,6 +1,31 @@
+// const extraChallenge = books => {
+//   //5th Book
+//   console.log(`5th book: ${books[4].name}`)
+//   //1031st character
+//   let found = false
+//   for (let book of books){
+//     if (found) break
+//     for (let character of book.characters){
+//       if (character.slice(45) === "1031") {
+//         found = character
+//         break
+//       }
+//     }
+//   }
+//   console.log(`the 1031st character: ${found}`)
+//   //total pages
+//   let pages = 0
+//   for (let book of books){
+//     pages += book.numberOfPages
+//   }
+//   console.log(`total pages: ${pages}`)
+// }
+
+
 function fetchBooks() {
-  // To pass the tests, don't forget to return your fetch!
-  
+  return fetch("https://anapioficeandfire.com/api/books")
+  .then((resp) => resp.json())
+  .then((json) => renderBooks(json));
 }
 
 function renderBooks(books) {
